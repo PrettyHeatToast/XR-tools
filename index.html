@@ -10,28 +10,31 @@
 <a-scene embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
 
     <a-assets>
-		<img id="grid" src="images/border.png" />
-		<img id="earth-flat" src="images/earth-flat.jpg" />
-		<img id="earth-sphere" src="images/earth-sphere.jpg" />
+	<a-asset-item id="tree" src="models/tree.gltf"></a-asset-item>
 	</a-assets>
     
     <a-marker type="barcode" value="0">
-        <a-box position="0 0.5 0" 
-               material="src: #grid; color: yellow; transparent: true; opacity: 0.50;">
-        </a-box>
+        <a-entity   position="0 0 0" 
+                    rotation="0 0 0"
+                    scale="0.10 0.10 0.10"
+                    gltf-model="#tree" >
+        </a-entity>
     </a-marker>
 
     <a-marker type="barcode" value="1">
-        <a-plane position="0 0 0" 
-                 rotation="-90 0 0"
-               material="src: #earth-flat;">
-        </a-plane>
+        <a-entity   position="0 0 0" 
+                    rotation="0 0 0"
+                    scale="0.10 0.10 0.10"
+                    gltf-model="#tree" >
+        </a-entity>
     </a-marker>
 
     <a-marker type="barcode" value="2">
-        <a-sphere position="0 0.5 0" 
-               material="src: #earth-sphere; transparent: true; opacity: 0.95;">
-        </a-sphere>
+        <a-entity   position="0 0 0" 
+                    rotation="0 0 0"
+                    scale="0.10 0.10 0.10"
+                    gltf-model="#tree" >
+        </a-entity>
     </a-marker>
     
     <a-entity camera></a-entity>
