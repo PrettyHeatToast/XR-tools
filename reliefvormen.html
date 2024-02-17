@@ -1,0 +1,32 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <title>XR in aardijkskunde</title>
+</head>
+
+<script src="js/aframe.min.js"></script>
+<script src="js/aframe-ar.js"></script>
+
+<body style="margin: 0px; overflow: hidden;">
+
+    <!-- set detectionMode and matrixCodeType to enable barcode marker detection and custom pattern files -->
+
+    <a-scene embedded vr-mode-ui="enabled: false;"
+        arjs="debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
+
+        <a-assets>
+            <a-asset-item id="vlakte1" src="models/reliefvormen/vlakte-sint-niklaas.gltf"></a-asset-item>
+        </a-assets>
+
+        <a-marker type="barcode" value="0">
+            <a-entity position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#vlakte1">
+            </a-entity>
+        </a-marker>
+
+        <a-entity camera></a-entity>
+
+    </a-scene>
+</body>
+
+</html>
