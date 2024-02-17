@@ -4,30 +4,29 @@
 <head>
     <title>XR in aardijkskunde</title>
 </head>
-	
-<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
 <script src="js/aframe.min.js"></script>
 <script src="js/aframe-ar.js"></script>
+
 <body style="margin: 0px; overflow: hidden;">
-  
-<!-- set detectionMode and matrixCodeType to enable barcode marker detection and custom pattern files -->
 
-<a-scene embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
+    <!-- set detectionMode and matrixCodeType to enable barcode marker detection and custom pattern files -->
 
-    <a-assets>
-	<a-asset-item id="hoogtekaart1" src="models/result.gltf"></a-asset-item>
-	</a-assets>
+    <a-scene embedded vr-mode-ui="enabled: false;"
+        arjs="debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
 
-    <a-marker type="barcode" value="0">
-        <a-entity   position="0 0 -1" 
-                    rotation="0 0 0"
-                    scale="3 3 3"
-                    gltf-model="#hoogtekaart1" >
-        </a-entity>
-    </a-marker>
-    
-    <a-entity camera></a-entity>
-    
-</a-scene>
+        <a-assets>
+            <a-asset-item id="hoogtekaart1" src="models/hoogtekaarten/hoogtekaart-namen.gltf"></a-asset-item>
+        </a-assets>
+
+        <a-marker type="barcode" value="0">
+            <a-entity position="0 0 -1" rotation="0 0 0" scale="3 3 3" gltf-model="#hoogtekaart1">
+            </a-entity>
+        </a-marker>
+
+        <a-entity camera></a-entity>
+
+    </a-scene>
 </body>
+
 </html>
