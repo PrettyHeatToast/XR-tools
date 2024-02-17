@@ -8,59 +8,32 @@
 		{
 			"name":"Scene",
 			"nodes":[
-				0,
-				1
+				0
 			]
 		}
 	],
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"Gebergte - Elbroes",
-			"scale":[
-				0.10000000149011612,
-				0.10000000149011612,
-				0.10000000149011612
-			]
-		},
-		{
-			"mesh":1,
 			"name":"Cube",
 			"scale":[
 				12,
 				100,
-				12
-			],
-			"translation":[
-				12,
-				0,
 				12
 			]
 		}
 	],
 	"meshes":[
 		{
-			"name":"Gebergte - Elbroes",
-			"primitives":[
-				{
-					"attributes":{
-						"POSITION":0,
-						"NORMAL":1
-					},
-					"indices":2
-				}
-			]
-		},
-		{
 			"name":"Cube.001",
 			"primitives":[
 				{
 					"attributes":{
-						"POSITION":3,
-						"NORMAL":4,
-						"TEXCOORD_0":5
+						"POSITION":0,
+						"NORMAL":1,
+						"TEXCOORD_0":2
 					},
-					"indices":6
+					"indices":3
 				}
 			]
 		}
@@ -68,34 +41,6 @@
 	"accessors":[
 		{
 			"bufferView":0,
-			"componentType":5126,
-			"count":779667,
-			"max":[
-				260.3701477050781,
-				182.92799377441406,
-				360
-			],
-			"min":[
-				0,
-				0,
-				0
-			],
-			"type":"VEC3"
-		},
-		{
-			"bufferView":1,
-			"componentType":5126,
-			"count":779667,
-			"type":"VEC3"
-		},
-		{
-			"bufferView":2,
-			"componentType":5125,
-			"count":788382,
-			"type":"SCALAR"
-		},
-		{
-			"bufferView":3,
 			"componentType":5126,
 			"count":480744,
 			"max":[
@@ -111,19 +56,19 @@
 			"type":"VEC3"
 		},
 		{
-			"bufferView":4,
+			"bufferView":1,
 			"componentType":5126,
 			"count":480744,
 			"type":"VEC3"
 		},
 		{
-			"bufferView":5,
+			"bufferView":2,
 			"componentType":5126,
 			"count":480744,
 			"type":"VEC2"
 		},
 		{
-			"bufferView":6,
+			"bufferView":3,
 			"componentType":5125,
 			"count":490152,
 			"type":"SCALAR"
@@ -132,50 +77,32 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":9356004,
+			"byteLength":5768928,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":9356004,
-			"byteOffset":9356004,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":3153528,
-			"byteOffset":18712008,
-			"target":34963
-		},
-		{
-			"buffer":0,
 			"byteLength":5768928,
-			"byteOffset":21865536,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":5768928,
-			"byteOffset":27634464,
+			"byteOffset":5768928,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":3845952,
-			"byteOffset":33403392,
+			"byteOffset":11537856,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":1960608,
-			"byteOffset":37249344,
+			"byteOffset":15383808,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":39209952,
+			"byteLength":17344416,
 			"uri":"gebergte-elbroes.bin"
 		}
 	]
