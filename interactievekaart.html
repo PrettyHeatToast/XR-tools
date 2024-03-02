@@ -18,12 +18,12 @@
     
             marker.addEventListener('markerFound', function() {
                 markerVisible[ marker.id ] = true;
-                // console.log( markerVisible );
+                console.log( markerVisible );
             });
     
             marker.addEventListener('markerLost', function() {
                 markerVisible[ marker.id ] = false;
-                // console.log( markerVisible );
+                console.log( markerVisible );
             });
         }
     });
@@ -36,11 +36,8 @@
         },
         
         tick: function (time, deltaTime) 
-        {
-            // for convenience
-            let mv = markerVisible;
-            
-            if ( mv[gemeentesMap] )
+        {           
+            if ( markerVisible[gemeentesMap] )
                 this.plane1.setAttribute("scale", "2 2 2");
         }
     });
