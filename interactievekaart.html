@@ -24,17 +24,11 @@
                 markerVisible[marker.id] = false;
                 console.log(markerVisible);
             });
+
+            if (markerVisible[gemeentesMap])
+                    document.querySelector("#plane1").setAttribute("scale", "2 2 2");
         }
     });
-
-    AFRAME.registerComponent('loop',
-        {
-            tick: function (time, deltaTime) {
-                if (markerVisible[gemeentesMap])
-                    document.querySelector("#plane1").setAttribute("scale", "2 2 2");
-            }
-        });
-
 </script>
 
 <body style="margin: 0px; overflow: hidden;">
