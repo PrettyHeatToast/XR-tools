@@ -18,20 +18,29 @@
             marker.addEventListener('markerFound', function () {
                 markerVisible[marker.id] = true;
                 console.log(markerVisible);
-
-                if (markerVisible[gemeentesMap])
-                    document.querySelector("#plane1").setAttribute("scale", "2 2 2");
             });
 
             marker.addEventListener('markerLost', function () {
                 markerVisible[marker.id] = false;
                 console.log(markerVisible);
-
-                if (markerVisible[gemeentesMap])
-                    document.querySelector("#plane1").setAttribute("scale", "0 0 0");
             });
+        }
+    });
 
+    AFRAME.registerComponent('loop', 
+    {   
+        init: function()
+        {
+            this.box = document.querySelector("#plane1");
+        },
+        
+        tick: function (time, deltaTime) 
+        {
+            // for convenience
+            let mv = markerVisible;
             
+            if ( mv[gemeentesMap] )
+                this.box.setAttribute("scale", "2 2 2");
         }
     });
 </script>
