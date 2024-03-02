@@ -17,11 +17,12 @@
 
         <a-assets>
             <img id="gemeentes" src="images/gemeentes.svg" />
+            <img id="basiskaart" src="images/basiskaart.svg" />
         </a-assets>
 
-        <a-marker type="pattern" url="patterns/belgie.patt">
-            <a-plane position="0 0 0" rotation="0 0 0" material="src: #gemeentes;">
-            </a-plane>
+        <a-marker type="barcode" value="0">
+            <a-plane position="0 0 0" rotation="-90 0 0" scale="2 2 2" material="src: #basiskaart;"></a-plane>
+            <a-plane position="0 0 0" rotation="-90 0 0" scale="2 2 2" material="src: #gemeentes; transparent: true;"></a-plane>
         </a-marker>
         
         < <a-entity camera></a-entity>
