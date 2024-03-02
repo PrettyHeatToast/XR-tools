@@ -1,0 +1,32 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <title>XR in aardijkskunde</title>
+</head>
+
+<script src="js/aframe.min.js"></script>
+<script src="js/aframe-ar.js"></script>
+
+<body style="margin: 0px; overflow: hidden;">
+
+    <!-- set detectionMode and matrixCodeType to enable barcode marker detection and custom pattern files -->
+
+    <a-scene embedded vr-mode-ui="enabled: false;"
+        arjs="debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
+
+        <a-assets>
+            <img id="gemeentes" src="images/gemeentes.svg" />
+        </a-assets>
+
+        <a-marker type="pattern" url="patterns/belgie.patt">
+            <a-plane position="0 0 0" rotation="0 0 0" material="src: #gemeentes;">
+            </a-plane>
+        </a-marker>
+        
+        < <a-entity camera></a-entity>
+
+    </a-scene>
+</body>
+
+</html>
