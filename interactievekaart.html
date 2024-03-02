@@ -30,7 +30,6 @@
     AFRAME.registerComponent('loop',
         {
             tick: function (time, deltaTime) {
-                console.log(markerVisible);
                 if (markerVisible[gemeentesMap])
                     document.querySelector("#plane1").setAttribute("scale", "2 2 2");
             }
@@ -59,7 +58,8 @@
 
         <a-marker type="barcode" value="1" id="gemeentesMap" registerevents></a-marker>
 
-        < <a-entity camera></a-entity>
+        <a-entity camera></a-entity>
+        <a-entity loop></a-entity>
 
     </a-scene>
 </body>
