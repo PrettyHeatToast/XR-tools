@@ -18,15 +18,20 @@
             marker.addEventListener('markerFound', function () {
                 markerVisible[marker.id] = true;
                 console.log(markerVisible);
+
+                if (markerVisible[gemeentesMap])
+                    document.querySelector("#plane1").setAttribute("scale", "2 2 2");
             });
 
             marker.addEventListener('markerLost', function () {
                 markerVisible[marker.id] = false;
                 console.log(markerVisible);
+
+                if (markerVisible[gemeentesMap])
+                    document.querySelector("#plane1").setAttribute("scale", "0 0 0");
             });
 
-            if (markerVisible[gemeentesMap])
-                    document.querySelector("#plane1").setAttribute("scale", "2 2 2");
+            
         }
     });
 </script>
