@@ -7,6 +7,45 @@
 
 <script src="js/aframe.min.js"></script>
 <script src="js/aframe-ar.js"></script>
+<script>
+
+    let markerVisible = { "gemeentesMap": false };
+    
+    AFRAME.registerComponent('registerevents', {
+        init: function () 
+        {
+            let marker = this.el;
+    
+            marker.addEventListener('markerFound', function() {
+                markerVisible[ marker.id ] = true;
+                // console.log( markerVisible );
+            });
+    
+            marker.addEventListener('markerLost', function() {
+                markerVisible[ marker.id ] = false;
+                // console.log( markerVisible );
+            });
+        }
+    });
+    
+    AFRAME.registerComponent('loop', 
+    {   
+        init: function()
+        {
+            this.plane1 = document.querySelector("#plane1");
+        },
+        
+        tick: function (time, deltaTime) 
+        {
+            // for convenience
+            let mv = markerVisible;
+            
+            if ( mv[gemeentesMap] )
+                this.plane1.setAttribute("scale", "2 2 2");
+        }
+    });
+    
+    </script>
 
 <body style="margin: 0px; overflow: hidden;">
 
@@ -16,14 +55,16 @@
         arjs="debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
 
         <a-assets>
-            <img id="gemeentes" src="images/gemeentes.svg" />
-            <img id="basiskaart" src="images/basiskaart.svg" />
+            <img id="gemeentesImg" src="images/gemeentes.svg" />
+            <img id="basiskaartImg" src="images/basiskaart.svg" />
         </a-assets>
 
-        <a-marker type="barcode" value="0">
-            <a-plane position="0 0 0" rotation="-90 0 0" scale="2 2 2" material="src: #basiskaart;"></a-plane>
-            <a-plane position="0 0 0" rotation="-90 0 0" scale="2 2 2" material="src: #gemeentes; transparent: true;"></a-plane>
+        <a-marker type="barcode" value="0" id="baseMap" registerevents>
+            <a-plane id="plane0" position="0 0 0" rotation="-90 0 0" scale="2 2 2" material="src: #basiskaartImg;"></a-plane>
+            <a-plane id="plane1" position="0 0 0" rotation="-90 0 0" scale="0 0 0" material="src: #gemeentesImg; transparent: true;"></a-plane>
         </a-marker>
+
+        <a-marker type="barcode" value="1" id="gemeentesMap" registerevents></a-marker>
         
         < <a-entity camera></a-entity>
 
