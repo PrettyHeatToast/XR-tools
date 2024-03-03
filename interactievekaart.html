@@ -41,6 +41,8 @@
             
             if ( mv["gemeentesMap"] )
                 this.box.setAttribute("scale", "2 2 2");
+            else if ( mv["gemeentesMap"] == false )
+                this.box.setAttribute("scale", "0 0 0");
         }
     });
 </script>
