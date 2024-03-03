@@ -9,7 +9,7 @@
 <script src="js/aframe-ar.js"></script>
 <script>
 
-    let markerVisible = { "gemeentesMap": false };
+    let markerVisible = { "KaartBelgieGemeentenTracker": false, "KaartBelgieGentTracker": false };
 
     AFRAME.registerComponent('registerevents', {
         init: function () {
@@ -31,7 +31,8 @@
     {   
         init: function()
         {
-            this.box = document.querySelector("#plane1");
+            this.plane1 = document.querySelector("#plane1");
+            this.plane2 = document.querySelector("#plane2");
         },
         
         tick: function (time, deltaTime) 
@@ -39,10 +40,15 @@
             // for convenience
             let mv = markerVisible;
             
-            if ( mv["gemeentesMap"] )
-                this.box.setAttribute("scale", "2 2 2");
-            else if ( mv["gemeentesMap"] == false )
-                this.box.setAttribute("scale", "0 0 0");
+            if ( mv["KaartBelgieGemeentenTracker"] )
+                this.plane1.setAttribute("scale", "2 2 2");
+            else if ( mv["KaartBelgieGemeentenTracker"] == false )
+                this.plane1.setAttribute("scale", "0 0 0");
+
+            if ( mv["KaartBelgieGentTracker"] )
+                this.plane2.setAttribute("scale", "2 2 2");
+            else if ( mv["KaartBelgieGentTracker"] == false )
+                this.plane2.setAttribute("scale", "0 0 0");
         }
     });
 </script>
@@ -55,18 +61,22 @@
         arjs="debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
 
         <a-assets>
-            <img id="gemeentesImg" src="images/gemeentes.svg" />
-            <img id="basiskaartImg" src="images/basiskaart.svg" />
+            <img id="KaartBelgieBasis" src="images/KaartBelgieBasis.svg" />
+            <img id="KaartBelgieGemeenten" src="images/KaartBelgieGemeenten.svg" />
+            <img id="KaartBelgieGent" src="images/KaartBelgieGent.svg" />
         </a-assets>
 
         <a-marker type="barcode" value="0" id="baseMap" registerevents>
             <a-plane id="plane0" position="0 0 0" rotation="-90 0 0" scale="2 2 2"
-                material="src: #basiskaartImg;"></a-plane>
+                material="src: #KaartBelgieBasis;"></a-plane>
             <a-plane id="plane1" position="0 0 0" rotation="-90 0 0" scale="0 0 0"
-                material="src: #gemeentesImg; transparent: true;"></a-plane>
+                material="src: #KaartBelgieGemeenten; transparent: true;"></a-plane>
+            <a-plane id="plane2" position="0 0 0" rotation="-90 0 0" scale="0 0 0"
+                material="src: #KaartBelgieGent; transparent: true;"></a-plane>
         </a-marker>
 
-        <a-marker type="barcode" value="1" id="gemeentesMap" registerevents></a-marker>
+        <a-marker type="barcode" value="1" id="KaartBelgieGemeentenTracker" registerevents></a-marker>
+        <a-marker type="barcode" value="1" id="KaartBelgieGentTracker" registerevents></a-marker>
 
         <a-entity camera></a-entity>
         <a-entity loop></a-entity>
