@@ -18,11 +18,12 @@
         arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
 
         <a-assets>
-            <a-asset-item id="hoogtekaart1" src="models/hoogtekaarten/hoogtekaart-namen.gltf"></a-asset-item>
+            <img id="KaartBelgieBasis" src="images/KaartBelgieBasis.svg" />
         </a-assets>
 
-        <a-entity gltf-model=#hoogtekaart1 rotation="0 0 0" scale="0.00015 0.00015 0.00015"
-            gps-entity-place="longitude: 3.708050; latitude: 51.041960;" animation-mixer />
+        <a-plane id="plane0" position="0 0 0" rotation="-90 0 0" scale="2 2 2"
+                material="src: #KaartBelgieBasis;" gps-entity-place="longitude: 3.708050; latitude: 51.041960;"></a-plane>
         <a-camera gps-camera rotation-reader></a-camera>
+        
     </a-scene>
 </body>
