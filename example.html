@@ -1,0 +1,39 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <title>TITEL VAN DE WEBPAGINA</title>
+</head>
+
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar.js"></script>
+
+<body style="margin: 0px; overflow: hidden;">
+
+    <a-scene embedded vr-mode-ui="enabled: false;"
+        arjs="debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
+
+        <!-- Dit is waar alle 3D-modellen ingeladen moeten worden -->
+        <!-- In dit voorbeeld wordt "malachite.gltf" uit de map "stenen",
+             die op zijn beurt in de map "models" zit ingeladen met als id "malachiet1" -->
+        <a-assets>
+            <a-asset-item id="malachiet" src="models/stenen/malachite.gltf"></a-asset-item>
+        </a-assets>
+
+        <!-- Dit is waar elke tracker een 3D-model toegewezen krijgt -->
+        <!-- In dit voorbeeld krijgt tracker "1" model "malachiet1" toegewezen -->
+        <!-- Let op dat er een # voor de id van het model moet staan -->
+        <!-- De positie, rotatie en schaal krijgen allemaal hun standaardwaarden mee,
+             maar kunnen aangepast worden -->
+        <a-marker type="barcode" value="1">
+            <a-entity position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#malachiet1">
+            </a-entity>
+        </a-marker>
+
+        <!-- Dit zorgt ervoor dat de camera van de gebruiker wordt opgevraagd -->
+        <a-entity camera></a-entity>
+
+    </a-scene>
+</body>
+
+</html>
