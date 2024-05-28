@@ -1,0 +1,75 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <title>XR in aardrijkskunde</title>
+</head>
+
+<script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
+<script>
+
+    let markerVisible = { "KaartBelgieGemeentenTracker": false, "KaartBelgieGentTracker": false };
+
+    AFRAME.registerComponent('registerevents', {
+        init: function () {
+            let marker = this.el;
+
+            marker.addEventListener('markerFound', function () {
+                markerVisible[marker.id] = true;
+                console.log(markerVisible);
+            });
+
+            marker.addEventListener('markerLost', function () {
+                markerVisible[marker.id] = false;
+                console.log(markerVisible);
+            });
+        }
+    });
+
+    AFRAME.registerComponent('loop',
+        {
+            init: function () {
+                this.SteenMalachiet1 = document.querySelector("#SteenMalachiet1");
+                this.ToolZuur1 = document.querySelector("#ToolZuur1");
+            },
+
+            tick: function (time, deltaTime) {
+                // for convenience
+                let mv = markerVisible;
+
+                if (mv["Zuur"])
+                    this.SteenMalachiet1.setAttribute("particle-system", "texture: images/particles/star.png; color: #FF0000, #FFFF00; size: 1, 0; velocityValue: 0.001 0.001 0.001; velocitySpread: 0.5 0 0.5; accelerationValue: 0.001 0.001 0.001; accelerationSpread: 0.001 0.001 0.001; rotationAngle: 0; blending: 1; particleCount: 200; maxAge: 5; ")
+                else if (mv["Zuur"] == false)
+                    this.SteenMalachiet1.setAttribute("particle-system", "");
+            }
+        });
+</script>
+
+<body style="margin: 0px; overflow: hidden;">
+
+    <a-scene embedded vr-mode-ui="enabled: false;"
+        arjs="debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
+
+        <a-assets>
+            <a-asset-item id="malachiet1" src="models/stenen/malachite.gltf"></a-asset-item>
+        </a-assets>
+
+        <a-marker type="barcode" value="1"  id="Malachiet" registerevents>
+            <a-entity id="SteenMalachiet1" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#malachiet1">
+            </a-entity>
+        </a-marker>
+
+        <a-marker type="barcode" value="2" id="Zuur" registerevents>
+            <a-entity id="ToolZuur1" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#malachiet1">
+            </a-entity>
+        </a-marker>
+
+        <!-- Dit zorgt ervoor dat de camera van de gebruiker wordt opgevraagd -->
+        <a-entity camera></a-entity>
+
+    </a-scene>
+</body>
+
+</html>

@@ -21,9 +21,13 @@
             <img id="KaartBelgieBasis" src="images/KaartBelgieBasis.svg" />
         </a-assets>
 
-        <a-plane id="plane0" position="0 0 0" rotation="-90 0 0" scale="2 2 2"
-                material="src: #KaartBelgieBasis;" gps-entity-place="longitude: 3.708050; latitude: 51.041960;"></a-plane>
+        <a-plane id="plane0" position="0 0 0" rotation="-90 0 0" scale="2 2 2" material="src: #KaartBelgieBasis;"
+            gps-entity-place="longitude: 3.708050; latitude: 51.041960;"></a-plane>
+
+        <a-entity gltf-model=#hoogtekaart1 gps-entity-place="longitude: 3.708050; latitude: 51.041960;"
+            animation-mixer />
+
         <a-camera gps-camera rotation-reader></a-camera>
-        
+
     </a-scene>
 </body>
